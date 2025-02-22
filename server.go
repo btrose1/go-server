@@ -18,13 +18,11 @@ func handleConnection(conn net.Conn) {
 			fmt.Println("Client disconnected:", conn.RemoteAddr())
 			return
 		}
-
 		message = strings.TrimSpace(message)
 		fmt.Println("Receieved:", message)
 
 		// Respond to the client
 		response := fmt.Sprintf("Server received: %s\n", message)
 		_, err = conn.Write([]byte(response))
-
 	}
 }
